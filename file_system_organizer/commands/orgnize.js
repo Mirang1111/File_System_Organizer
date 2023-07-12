@@ -109,7 +109,9 @@ function getcategory(name)
 
 function sendfiles(srcfile , dest , category)
 {
+ // path.join makes makes only path and not the folder
    let categorypath = path.join(dest , category);
+ // if path does not exists , then make a category path folder
    if(fs.existsSync(categorypath)==false)
    {
       fs.mkdirSync(categorypath);
