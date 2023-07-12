@@ -4,6 +4,7 @@ let path = require("path");
 function organizefn(dirpath){
  // 1. input -> directory path 
  let destpath;
+ // sometimes the path may be undefined so check for it
  if(dirpath==undefined)
  {
     destpath = process.cwd();
@@ -11,11 +12,13 @@ function organizefn(dirpath){
   return ;
  }
  else{
+  // check if the path exists or not
     let doesexist = fs.existsSync(dirpath);
     if(doesexist)
     {
           // 2. create a directory of the name organize files if the directory path does not exist
          destpath =  path.join(dirpath , "organized_files");
+     // we run it once only , so keep a check already
          if(fs.existsSync(destpath)==false)
          {
          fs.mkdirSync(destpath);
