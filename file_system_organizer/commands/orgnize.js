@@ -118,6 +118,7 @@ function sendfiles(srcfile , dest , category)
    }
    let filename  = path.basename(srcfile);
    let destfilepath = path.join(categorypath , filename);
+   // we are copying sourcefile to destfilepath 
    fs.copyFileSync(srcfile , destfilepath);
 }
 module.exports={
